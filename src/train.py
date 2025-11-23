@@ -8,8 +8,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 
-def run_training():
-    #Load dataset
+def train():
+    # Load dataset
     data = load_breast_cancer()
     X = pd.DataFrame(data.data, columns=data.feature_names)
     y = pd.Series(data.target)
@@ -24,7 +24,7 @@ def run_training():
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-    # train
+    # train model
     model = LogisticRegression(max_iter=500)
     model.fit(X_train_scaled, y_train)
 
@@ -38,4 +38,4 @@ def run_training():
 
 
 if __name__ == "__main__":
-    run_training()
+    train()
