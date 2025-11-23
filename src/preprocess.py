@@ -1,3 +1,10 @@
-def preprocess():
-    print("Preprocessing example")
-    return True
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+
+def load_data():
+    """Load Breast Cancer dataset into a pandas DataFrame"""
+    data = load_breast_cancer()
+    df = pd.DataFrame(data.data, columns=data.feature_names)
+    df["target"] = data.target
+    return df
+
