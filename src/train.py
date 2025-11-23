@@ -1,12 +1,11 @@
+from src.preprocess import load_data
+from src.model import create_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from preprocess import load_data
-from model import create_model
-
 
 def train():
-    """Train model and return accuracy."""
+    """Train model and return accuracy"""
     df = load_data()
 
     X = df.drop("target", axis=1)
@@ -27,4 +26,3 @@ def train():
 
 if __name__ == "__main__":
     train()
-
